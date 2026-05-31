@@ -1,21 +1,36 @@
 package com.example.demo.spring;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@SpringBootApplication
-public class Application {
+public class Application
+{
+	public static void main( String[] args )
+	{
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-		System.out.println("hello from first program of spring");
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		// create a container
+		Alien obj1 = context.getBean(Alien.class);
 
-		DemoOne obj = new DemoOne();
-		obj.setNumber(10);
-		obj.setName("Rushi");
+//		Laptop lap = context.getBean(Laptop.class);
 
-		System.out.println(obj.getNumber());
-		System.out.println(obj.getName());
+////    	obj1.setAge(21);
+//		System.out.println(obj1.getAge());
+//
+//		obj1.code();
+//
+//    	Alien obj2 = (Alien) context.getBean("alien1");
+//    	System.out.println(obj2.age);
+//    	//obj2.code();
+
+
+
+//        Computer com=	context.getBean( Computer.class);
+
+
+
+//    	Desktop obj=(Desktop)context.getBean("com2",Desktop.class);
+//	 Desktop obj= context.getBean( Desktop.class);
 	}
-
 }
